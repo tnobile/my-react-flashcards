@@ -41,6 +41,7 @@ function decodeString(str) {
   return str.replace(/&#?\w+;/g, match => entities[match]);
 }
 
+// eslint-disable-next-line no-unused-vars
 const SAMPLE_CARDS = [
   {
     id: 1,
