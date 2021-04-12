@@ -1,18 +1,11 @@
 .flashcard-options {
-    margin-top: 0.5rem
+    margin-top: .5rem
 }
 
 .flashcard-option {
     margin-top: 0.25rem;
     color: #555;
     font-size: 0.8rem;
-}
-
-.card-grid{
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
 }
 
 .card {
@@ -22,9 +15,10 @@
     position: relative;
     border-radius: .25rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-    background-color: white;
+    background-color: pink;
     transform-style: preserve-3d;
-    height: 250px;
+    height: 150px;
+    width: 220px;
     cursor: pointer;
     transition: 150ms;
     transform: perspective(1000px) rotateY(var(--rotate-y, 0))
@@ -41,7 +35,7 @@
 .card .front, .card .back {
     position: absolute;
     padding: 1rem;
-    backface-visibility: hidden;
+    backface-visibility:hidden;
 }
 
 .card .back {

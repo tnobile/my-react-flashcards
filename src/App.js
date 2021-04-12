@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FlashcardList from './components/Flashcard/FlashcardList';
+import FlashcardList from './components/FlashcardList/FlashcardList';
 
 function App() {
   const [cards, setCards] = useState(SAMPLE_CARDS)
@@ -25,7 +25,7 @@ const SAMPLE_CARDS = [
     options: ['2', '3', '8', '4']
   },
   {
-    id: 1,
+    id: 3,
     question: 'What is six * six ?',
     answer: '36',
     options: ['2', '36', '5', '4']

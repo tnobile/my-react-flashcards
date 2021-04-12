@@ -4,11 +4,13 @@ import classes from "./Flashcard.module.css"
 const Flashcard = (props) => {
     const [flip, setFlip] = useState(false);
 
-    const f = flip ? 'flip' : '';
+    const f = flip ? 'card ' : 'card flip';
+    //<div className={[classes.card, classes[f]].join(",")}
+    console.log("f is " + f);
     return (
-        <div className={[classes.card, classes[f]].join(",")}
+        <div className={[classes.card, flip ? classes.flip : ''].join(' ')}
             onClick={() => setFlip(!flip)}>
-            <div classname={classes.front}>
+            <div className={classes.front}>
                 {props.flashcard.question}
                 <div className={classes['flashcard-options']}>
                     {props.flashcard.options.map(o => {
