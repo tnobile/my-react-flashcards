@@ -3,7 +3,7 @@ import FlashcardList from './components/FlashcardList/FlashcardList';
 
 function App() {
   const [cards, setCards] = useState([])
-  const url = 'https://opentdb.com/api.php?amount=15';
+  const url = 'https://opentdb.com/api.php?amount=12';
   useEffect(() => {
     fetch(url)
       .then(resp => resp.json())
