@@ -1,0 +1,9 @@
+.flashcard-options {
+    margin-top: .5rem
+}
+
+.flashcard-option {
+    margin-top: 0.25rem;
+    color: purple;
+    font-size: 0.8rem;
+}

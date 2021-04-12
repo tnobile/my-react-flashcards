@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FlashcardList from './components/FlashcardList/FlashcardList';
 
 function App() {
-  const [cards, setCards] = useState(SAMPLE_CARDS)
+  const [cards, setCards] = useState([])
+  const url = 'https://opentdb.com/api.php?amount=15';
+  useEffect(() => {
+    fetch(url)
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.response_code) return;
+        console.log(resp.results);
+        setCards(
+          resp.results.map((item, index) => {
+            const correct_answer= decodeString(item.correct_answer);
+            const decoded_answers = item.incorrect_answers.map(ic => decodeString(ic));
+            return {
+              id: `${index}-${Date.now()}`,
+              category: item.category,
+              difficulty: item.difficulty,
+              question: decodeString(item.question),
+              answer: correct_answer,
+              type: item.type,
+              options: [...decoded_answers, correct_answer]
+            }
+          })
+        )
+      })
+  }, [])
   return (
-    <div>
-      <h1>hello switzerland</h1>
-      <FlashcardList flashcards={cards} />
-    </div>
+    <FlashcardList flashcards={cards} />
   );
+}
+
+const entities = {
+  '&#039;': "'",
+  '&quot;': '"',
+}
+
+function decodeString(str) {
+  return str.replace(/&#?\w+;/g, match => entities[match]);
 }
 
 const SAMPLE_CARDS = [
