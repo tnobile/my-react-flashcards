@@ -1,5 +1,5 @@
 {
-  "name": "flashcard-react",
+  "name": "my-react-flashcards",
   "homepage": "http://tnobile.github.io/my-react-flashcards",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +13,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
